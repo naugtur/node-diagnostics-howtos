@@ -1,5 +1,7 @@
 # Optimizations
 
+> WORK IN PROGRESS
+
 ## How/why node optimizes and deoptimizes functions
 
 v8 compiles functions and tries to optimize them to better use memory and perform less unnecessary checks.
@@ -18,3 +20,7 @@ node --trace-opt
 node --trace-deopt
 node --trace-opt --trace-deopt app.js | grep someFunctionName
 ```
+
+## Examples
+
+[TBD](tbd.md)

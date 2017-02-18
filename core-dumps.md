@@ -26,3 +26,7 @@ If you didn't encounter a core dump before, it's probably because the operating 
 ## How to find stuff in a core dump
 
 [TBD](tbd.md)
+
+## When should I use core dumps?
+
+[TBD](tbd.md)
