@@ -24,7 +24,6 @@ and watch it burn :)
 
 ```
 perf record -F99 -p `pgrep -n node` -g -- sleep 3
-
 ```
 
 Wait, what is that sleep 3 for? It's there to keep the perf running - despite `-p` option pointing to a different pid, the command needs to be executed on a process and end with it. That's just how perf works.
@@ -50,4 +49,5 @@ Well, without these options you'll still get a flame graph, but with most bars l
 ## Examples
 
 See a real flame graph - download the file from /samples/flame-graph-example.html
+
 Or even better, practice capturing it yourself with /samples/flame-graph-exercise [flame graph exercise](./samples/flame-graph-exercise)
