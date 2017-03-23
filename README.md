@@ -18,7 +18,7 @@
 ----
 ### Goal
 
-This repo is for putting all the intricate bits of knowledge about diagnosing what happens to node applications performance and memory etc. in one place.
+The purpose of this repo is to collect all the intricate bits of knowledge about diagnosing what happens to node applications' performance, memory and production runtime.
 
 - short documents
 - link only to resources that should stay up
@@ -26,3 +26,7 @@ This repo is for putting all the intricate bits of knowledge about diagnosing wh
 - make it useful as notes for someone who knows it already but needs details to be able to teach others without preparation
 
 ---
+
+
+- Why does it focus on tools for Linux?
+  - Because people tend not to run web applications in production on Mac.

@@ -29,4 +29,4 @@ Generate a flame graph, identify the function in your code that performs the lon
 ## Task 2
 Now for something more realistic.
 
-Start the app, open http://localhost:8080/ to simulate traffic, run a short perf on a running process and generate a flame graph.
+Start the app, open http://localhost:8080/ to simulate traffic, run a short perf on the running process and generate a flame graph. See if you would identify the function under real traffic. Try with shorter sleep and lower profiling frequency too.
