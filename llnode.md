@@ -35,23 +35,26 @@ Note that lldb supports the use of a system plugin directory (`/usr/lib/lldb/plu
 
 | Task                                     | Command                                                                              |
 |------------------------------------------|--------------------------------------------------------------------------------------|
-| Display the JavaScript/C++ stack trace   | v8 bt [ &lt;number of frames &gt;]                                                   |
+| Display the help                         | v8 help                                                                              |
+| Display the JavaScript and C++ stack     | v8 bt [&lt;number of frames &gt;]                                                    |
 |                                          | output includes source file, line number, object addresses                           |
 |                                          | display source code using ‘frame select  &lt;frame number&gt;’ then ‘v8 source list’ |
 | List objects in the JavaScript heap      | v8 findjsobjects                                                                     |
 |                                          | provides number of objects, total size and type name                                 |
-| Display a JavaScript object              | v8 print  &lt;object address&gt; or v8 inspect  &lt;object address&gt;               |
+| Display a JavaScript object              | v8 print  &lt;object address&gt; or v8 inspect [-m -s -F] &lt;object address&gt;     |
 |                                          | provides constructor name, property names and values                                 |
-|                                          | -m option provides the map address                                                   |
-|                                          | –full-string and –string-length output options                                       |
-| Find JavaScript objects by type name     | v8 findjsinstances  &lt;type name&gt;                                                |
-|                                          | -m option provides the map address                                                   |
-|                                          | –full-string and –string-length output options                                       |
-| Find JavaScript objects by property name | v8 findrefs -n  &lt;property name&gt;                                                |
-| Find references to a JavaScript object   | v8 findrefs  &lt;object address&gt;                                                  |
+|                                          | -m option prints the object's map address                                            |
+|                                          | -s option prints source code for function objects                                    |
+|                                          | –F prints full string values without truncation                                      |
+| Find JavaScript objects by type name     | v8 findjsinstances [-m -s -F] &lt;type name&gt;                                      |
+|                                          | same output options as the ‘v8 inspect’ command                                      |
 | Display the constructor for an object    | v8 inspect  &lt;object address&gt;                                                   |
 | Display JavaScript source code           | v8 inspect -s  &lt;function address&gt;                                              |
 |                                          | or use ‘v8 source list’ for current stackframe, see ‘v8 bt’ above                    |
-| Display address of buffer memory         | v8 inspect  &lt;buffer object address&gt;                                            |
-| Display summary Node.js information      | v8 nodeinfo                                                                          |
+| Find JavaScript objects by reference     | v8 findrefs [-v -n -s] &lt;object address&gt; or &lt;name&gt; or &lt;string&gt;      |
+|                                          | -v option (default) finds objects that reference a specified object                  |
+|                                          | -n option finds objects that reference a specified property name                     |
+|                                          | -s option finds objects that reference a specified string                            |
+| Display raw address of buffer memory     | v8 inspect &lt;buffer object address&gt;                                             |
+| Display Node.js information summary      | v8 nodeinfo                                                                          |
 
