@@ -14,15 +14,44 @@ It's great that lldb+llnode can be used to read diagnostics from node, it used t
 
 ## Notes on installation
 
+[https://npmjs.org/package/llnode](https://www.npmjs.org/package/llnode)
+
+or
 [https://github.com/nodejs/llnode](https://github.com/nodejs/llnode)
 
-Use install instructions, `npm install -g llnode` doesn't seem to work yet.
-But I had no trouble building according to instructions.
+Install using `npm install llnode` or follow the build instructions in the github project.
+
+Note that lldb supports the use of a system plugin directory (`/usr/lib/lldb/plugins` on Linux). By installing a plugin in the system plugin directory you avoid having to run the lldb `plugin load llnode.so` command in each lldb session. The npm install does not add the llnode plugin to the system plugin directory. You can either copy the plugin: `sudo cp llnode.so /usr/lib/lldb/plugins` or if you are building from the github repository, install it using the `sudo make install-linux` build step. 
+ 
+*A global npm install of llnode, i.e. `npm install -g llnode`, does not work right now. Maybe we should raise an issue on llnode to have the -g install do the copy to the system plugin directory. It would need to run as sudo/root.*
 
 You'll need to install lldb too.
-
-
 
 *It should work on all flavors of ubuntu and most other distros with any version of lldb starting at 3.8. If you find out more, feel free to PR here*
 
 *On 2017-02-03 I managed to install lldb-3.8 with latest llnode in xubuntu 16.04.1 kernel 4.4.0-62-generic x86_64*
+
+## llnode commands
+
+| Display the JavaScript/C++ stack trace   | v8 bt [<number of frames>]
+|                                          | default output includes source file, line number, object addresses
+|                                          | source code can be displayed using ‘frame select <frame number>’
+|                                          | followed by ‘v8 source list’
+| List objects in the JavaScript heap      | v8 findjsobjects
+|                                          | listed by object type name*
+|                                          | provides number of objects, total size and type name
+| Display a JavaScript object              | v8 print <object address>
+|                                          | v8 inspect <object address>
+|                                          | provides constructor name, property names and values
+|                                          | -m option provides the map address
+|                                          | –full-string and –string-length output options
+| Find JavaScript objects by type name     | v8 findjsinstances <type name>
+|                                          | -m option provides the map address
+|                                          | –full-string and –string-length output options
+| Find JavaScript objects by property name | v8 findrefs -n <property name>
+| Find references to a JavaScript object   | v8 findrefs <object address>
+| Display the constructor for an object    | v8 inspect <object address>
+| Display JavaScript source code           | v8 inspect -s <function address>, or
+|                                          | v8 source list for current stackframe, see ‘v8 bt’ above
+| Display address of buffer memory         | v8 inspect <buffer object address>
+| Display summary Node.js information      | v8 nodeinfo
