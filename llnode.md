@@ -30,27 +30,59 @@ Note that lldb supports the use of a system plugin directory (`/usr/lib/lldb/plu
 
 ## llnode commands
 
-| Task                                     | Command                                                                              |
-|------------------------------------------|--------------------------------------------------------------------------------------|
-| Display the help                         | v8 help                                                                              |
-| Display the JavaScript and C++ stack     | v8 bt [&lt;number of frames &gt;]                                                    |
-|                                          | output includes source file, line number, object addresses                           |
-|                                          | display source code using `frame select  &lt;frame number&gt;` then `v8 source list` |
-| List objects in the JavaScript heap      | v8 findjsobjects                                                                     |
-|                                          | provides number of objects, total size and type name                                 |
-| Display a JavaScript object              | v8 print  &lt;object address&gt; or v8 inspect [-m -s -F] &lt;object address&gt;     |
-|                                          | provides constructor name, property names and values                                 |
-|                                          | -m option prints the object's map address                                            |
-|                                          | -s option prints source code for function objects                                    |
-|                                          | -F prints full string values without truncation                                      |
-| Find JavaScript objects by type name     | v8 findjsinstances [-m -s -F] &lt;type name&gt;                                      |
-|                                          | same output options as the `v8 inspect` command                                      |
-| Display the constructor for an object    | v8 inspect  &lt;object address&gt;                                                   |
-| Display JavaScript source code           | v8 inspect -s  &lt;function address&gt;                                              |
-|                                          | or use `v8 source list` for current stackframe, see `v8 bt` above                    |
-| Find JavaScript objects by reference     | v8 findrefs [-v -n -s] &lt;object address&gt; or &lt;name&gt; or &lt;string&gt;      |
-|                                          | -v option (default) finds objects that reference a specified object                  |
-|                                          | -n option finds objects that reference a specified property name                     |
-|                                          | -s option finds objects that reference a specified string                            |
-| Display raw address of buffer memory     | v8 inspect &lt;buffer object address&gt;                                             |
-| Display Node.js information summary      | v8 nodeinfo                                                                          |
+Once you install llnode, these commands become available in lldb.
+
+
+---
+`v8 help` Display the help  
+
+`v8 nodeinfo` Display Node.js information summary
+
+---
+Display the JavaScript and C++ stack
+
+`v8 bt [<number of frames>]`
+
+
+  - output includes source file, line number, object addresses
+  - display source code using `frame select  <frame number>` then `v8 source list`
+
+---
+List objects in the JavaScript heap
+
+`v8 findjsobjects`
+
+  - provides number of objects, total size and type name
+
+---
+Display JavaScript object/constructor/function
+
+`v8 print <object address>`
+
+`v8 inspect <object address>`
+
+`v8 inspect <buffer object address>` Display raw address of buffer memory
+
+`v8 inspect [-m -s -F] <object address>`
+
+  - `-m` prints the object's map address
+  - `-s` prints source code for function objects
+    - see `v8 bt` above for source code of stackframe
+  - `-F` prints full string values without truncation
+
+
+---
+Find JavaScript objects by type name
+
+`v8 findjsinstances [-m -s -F] <type name>`
+
+  - same output options as the `v8 inspect`
+
+---
+Find JavaScript objects by reference  
+
+`v8 findrefs [-v -n -s]`
+
+  - `-v <object address>` (default) finds objects that reference a specified object
+  - `-n <name>` finds objects that reference a specified property name
+  - `-s <string>` finds objects that reference a specified string
