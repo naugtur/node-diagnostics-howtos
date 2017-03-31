@@ -18,8 +18,9 @@ If you didn't encounter a core dump before, it's probably because the operating 
   - set `--abort-on-uncaught-exception` to dump core on crash
   - call `process.abort()`
 - get the `core` file
-- segment it with a script from llnode `./llnode/scripts/readelf2segments.py ./core > core.ranges`
-- let lldb know where to look `export LLNODE_RANGESFILE=core.ranges`
+- if you are using lldb version 3.8 (not needed if you are using lldb version 3.9 or later):
+  - segment it with a script from llnode `./llnode/scripts/readelf2segments.py ./core > core.ranges`
+  - let lldb know where to look `export LLNODE_RANGESFILE=core.ranges`
 - run `lldb -c core`
 - use `v8` commands to analyze
 
