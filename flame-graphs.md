@@ -46,10 +46,10 @@ If you read your flame graph and it seems odd, as if something is missing in the
 
 Why do I need them at all?
 
-Well, without these options you'll still get a flame graph, but with most bars labeled `v8::Function::Call`. 
+Well, without these options you'll still get a flame graph, but with most bars labeled `v8::Function::Call`.
 
 ## Examples
 
 See a real flame graph - download the file from /samples/flame-graph-example.html
 
-Or even better, practice capturing it yourself with /samples/flame-graph-exercise [flame graph exercise](./samples/flame-graph-exercise)
+Or even better, practice capturing it yourself with [a flame graph exercise](https://github.com/naugtur/node-example-flamegraph)
