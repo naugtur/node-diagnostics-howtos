@@ -8,6 +8,7 @@
 | tbd: [how to choose which tool to use](tbd.md) |
 |**Guides**|
 | [about llnode](llnode.md) |
+| [about node-report](node-report.md) |
 | [flame graphs](flame-graphs.md) |
 | wip: [core dumps](core-dumps.md) |
 | wip: [tracking (de)optimizations](optimizations.md) |
