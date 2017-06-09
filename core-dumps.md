@@ -1,10 +1,20 @@
 # Core dumps
 
-## What's a core dump?
+## What is core dump?
 
-When your process crashes really badly, it produces a core dump. It's a snapshot of the state of your app (memory, call stack) on it's death bed.
+When your process crashes, it produces a core dump. It's a snapshot of the state of your app (memory, call stack) on it's death bed.
 
-If you didn't encounter a core dump before, it's probably because the operating system is configured to limit dump file sizes to 0 bytes by default.
+If you didn't encounter a core dump before, it's probably because your operating system is configured to limit dump file sizes to 0 bytes by default.
+
+### Enabling core dumps
+```bash
+ulimit -c unlimited
+```
+Change the limit of core dump size in your linux OS.
+
+This can also be configured with any Ops tools for infrastructure automation. Setting it to unlimited in production is not a great idea, especially if auto-restart is enabled.
+
+If you're running in containers, make sure they're configured not to discard the storage location where dumps are written.
 
 ## Core dump analysis
 
@@ -13,8 +23,8 @@ If you didn't encounter a core dump before, it's probably because the operating 
 - install lldb in your system (from apt)
 - install llnode according to readme [llnode notes](llnode.md)
 - enable writing core dumps `ulimit -c unlimited`
-- run the app and see it break!
-  - node dumps when it runs out of memory
+- run the app and see it break
+  - node dumps when it runs out of memory or segfaults
   - set `--abort-on-uncaught-exception` to dump core on crash
   - call `process.abort()`
   - or just use `gcore <PID>` to generate core dump on demand

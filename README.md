@@ -10,9 +10,9 @@
 | [about llnode](llnode.md) |
 | [about node-report](node-report.md) |
 | [flame graphs](flame-graphs.md) |
+| [heap dumps](heap-dumps.md) |
+| [tracking (de)optimizations](optimizations.md) |
 | wip: [core dumps](core-dumps.md) |
-| wip: [tracking (de)optimizations](optimizations.md) |
-| tbd: [heap dumps](tbd.md) |
 | tbd: [native debuggers (gdb and lldb)](tbd.md) |
 | **External links** |
 | [read this to really understand how asynchronous code runs](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/) |
