@@ -64,6 +64,8 @@ Most commonly referenced sources on de-optimization and non-optimization
 
 ## Examples
 
+Practice finding and fixing deoptimizations with [a deopt exercise](https://github.com/naugtur/node-example-deopt)
+
 ### Optimization logs for a single function
 ```
 [marking 0x3f4ef4310301 <JS Function Buffer.toString (SharedFunctionInfo 0x42f8a8e4779)> for optimized recompilation, reason: small function, ICs with typeinfo: 6/8 (75%), generic ICs: 0/8 (0%)]
