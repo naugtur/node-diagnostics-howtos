@@ -17,6 +17,7 @@ If you didn't encounter a core dump before, it's probably because the operating 
   - node dumps when it runs out of memory
   - set `--abort-on-uncaught-exception` to dump core on crash
   - call `process.abort()`
+  - or just use `gcore <PID>` to generate core dump on demand
 - get the `core` file
 - if you are using lldb version 3.8 (not needed if you are using lldb version 3.9 or later):
   - segment it with a script from llnode `./llnode/scripts/readelf2segments.py ./core > core.ranges`
