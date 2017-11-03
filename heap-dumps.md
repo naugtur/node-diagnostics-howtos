@@ -33,6 +33,16 @@ A file `heapdump-44214988.565232.heapsnapshot` is created. Numbers may vary.
 
 Finding a real memory leak requires some getting used to the tools, so for best results, practice on some examples (below).
 
+## Tracing garbage collection
+
+There's a lot to learn about how garbage collector works, but if you learn one thing it's that when GC is running, your code is not.
+Print GC events to stdout for one minute.
+```js
+const v8 = require('v8');
+v8.setFlagsFromString('--trace_gc');
+setTimeout(function() { v8.setFlagsFromString('--notrace_gc'); }, 60e3);
+```
+
 ## Examples
 
 Practice capturing heap dumps and finding memory leaks with [a heap dump exercise](https://github.com/naugtur/node-example-heapdump)
