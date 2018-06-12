@@ -31,7 +31,7 @@ perf record -F99 -p `pgrep -n node` -g -- sleep 3
 
 Wait, what is that `sleep 3` for? It's there to keep the perf running - despite `-p` option pointing to a different pid, the command needs to be executed on a process and end with it. Just a convenient way to keep perf going for a given time.
 
-Why is `-F` (profiling frequency) set to 99? I honestly don't know, Netflix guys used that value. Results look good. You can adjust if you want.
+Why is `-F` (profiling frequency) set to 99?  By default the sampling interval can coincide with the kernel scheduler's interval or other periodic tasks which can [lead to bad sampling](http://www.brendangregg.com/perf.html#TimedProfiling).
 
 After you get that 3 second perf record, proceed with generating the flame graph with last two steps from above.
 
